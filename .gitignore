@@ -1,0 +1,14 @@
+# build output
+/build/
+/dist/
+/shims/classes/
+/work/
+
+# tools you download yourself (see README, Building)
+/tools/javafx-sdk-*/
+/tools/android.jar
+
+# logs, self-test output
+*.log
+shots/
+hs_err_pid*

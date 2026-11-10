@@ -1,0 +1,69 @@
+# Game methods whose body is replaced by a call to com.cnx.desktop.game.Hooks.
+#
+# Format:  <internal class name> <method name> <descriptor>
+# The hook is   Hooks.<SimpleClassName>_<methodName>(<receiver if instance method>, <same params>)
+# with the same return type. These are the places where the game logic opens Android screens,
+# dialogs or toasts; on the desktop the JavaFX UI shows them instead.
+
+# --- GameEngine: dialogs opened by the core game flow
+com/cnx/endlesstalestwo/GameEngine showTravelingDialog (Lcom/cnx/endlesstalestwo/entities/Location;Lcom/cnx/endlesstalestwo/entities/Location;Lcom/cnx/endlesstalestwo/interfaces/TravelCallback;Landroid/content/Context;)V
+com/cnx/endlesstalestwo/GameEngine showLevelUpDialog (Lcom/cnx/endlesstalestwo/entities/Character;ZLandroid/content/Context;)V
+com/cnx/endlesstalestwo/GameEngine showCraftSkillLevelUpDialog (Lcom/cnx/endlesstalestwo/enums/Enums$CraftTypes;IILandroid/content/Context;)V
+com/cnx/endlesstalestwo/GameEngine showCharDeathDialog (IILandroid/content/Context;)V
+com/cnx/endlesstalestwo/GameEngine restoreAfterDeath (Landroid/content/Context;)V
+com/cnx/endlesstalestwo/GameEngine showDialog (Lcom/cnx/cnxgameengine/ui/CnxBaseDialog;)V
+com/cnx/endlesstalestwo/GameEngine closeDialog ()V
+com/cnx/endlesstalestwo/GameEngine updateTopToolbar (Landroid/view/View;Z)V
+com/cnx/endlesstalestwo/GameEngine executeAction (Lcom/cnx/endlesstalestwo/entities/Action;Lcom/cnx/endlesstalestwo/entities/Action$UIActionFinishedListener;ZLandroid/content/Context;)V
+com/cnx/endlesstalestwo/GameEngine giveGoogleAchievement (Ljava/lang/String;Landroid/app/Activity;)V
+com/cnx/endlesstalestwo/GameEngine giveGoogleAchievement (Ljava/lang/String;Landroid/content/Context;)V
+com/cnx/endlesstalestwo/GameEngine applyDayNightFilter (Landroid/widget/ImageView;Lcom/cnx/endlesstalestwo/enums/Enums$DayPeriod;)V
+com/cnx/endlesstalestwo/GameEngine showToast (Ljava/lang/String;Landroid/content/Context;)V
+
+# --- other game libraries
+com/cnx/endlesstalestwo/libs/LibQuest showNewQuestDialog (Lcom/cnx/endlesstalestwo/entities/Quest;Landroid/content/Context;)V
+com/cnx/endlesstalestwo/libs/LibActions executeAction (Lcom/cnx/endlesstalestwo/entities/Action;Lcom/cnx/endlesstalestwo/entities/Action$UIActionFinishedListener;ZLandroid/content/Context;)V
+com/cnx/endlesstalestwo/libs/Utils showTravelSelectionDialog (Landroid/content/Context;Ljava/util/ArrayList;)V
+
+# --- GameShell (instance methods)
+com/cnx/endlesstalestwo/GameShell showConfirmationDialog (Lcom/cnx/cnxgameengine/ui/CnxBaseDialog;)V
+com/cnx/endlesstalestwo/GameShell showConfirmationDialog (Lcom/cnx/endlesstalestwo/dialogs/_CnxConfirmationDialog;)V
+com/cnx/endlesstalestwo/GameShell closeCurrentDialog ()V
+com/cnx/endlesstalestwo/GameShell returnScreen ()V
+
+# --- screen callbacks used by NPC / quest scripts (instance methods)
+com/cnx/cnxgameengine/fragments/CnxFragment setScreenTouchable (Z)V
+com/cnx/cnxgameengine/fragments/CnxFragment getView (I)Landroid/view/View;
+com/cnx/endlesstalestwo/views/CnxFragmentImplementation updateTopDisplay ()V
+com/cnx/endlesstalestwo/views/CnxFragmentImplementation updateTopDisplay (Z)V
+com/cnx/endlesstalestwo/views/CnxFragmentImplementation executeEvent (Lcom/cnx/endlesstalestwo/entities/Event;)V
+com/cnx/endlesstalestwo/views/CnxFragmentImplementation getGameplayActivity ()Lcom/cnx/endlesstalestwo/activities/GameplayActivity;
+com/cnx/endlesstalestwo/views/CnxFragmentImplementation safeContext ()Landroid/content/Context;
+com/cnx/endlesstalestwo/views/CnxFragmentImplementation closeCurrentDialog ()V
+com/cnx/cnxgameengine/fragments/CnxFragment getBaseActivity ()Lcom/cnx/cnxgameengine/activities/BaseActivity;
+androidx/fragment/app/Fragment getActivity ()Landroidx/fragment/app/FragmentActivity;
+androidx/fragment/app/Fragment requireActivity ()Landroidx/fragment/app/FragmentActivity;
+androidx/fragment/app/Fragment getContext ()Landroid/content/Context;
+androidx/fragment/app/Fragment requireContext ()Landroid/content/Context;
+
+# --- engine utilities that show Android toasts / alerts
+com/cnx/cnxgameengine/utils/LibUtils showToast (Ljava/lang/String;ILandroid/content/Context;)V
+com/cnx/cnxgameengine/utils/LibUtils showToast (Ljava/lang/String;ILcom/cnx/cnxgameengine/utils/CoreEnums$MessageType;Landroid/content/Context;)V
+com/cnx/cnxgameengine/utils/LibUtils showToast (Ljava/lang/String;Landroid/content/Context;)V
+com/cnx/cnxgameengine/utils/LibUtils showToast (Ljava/lang/String;Lcom/cnx/cnxgameengine/utils/CnxToast$ToastDuration;Landroid/content/Context;)V
+com/cnx/cnxgameengine/utils/LibUtils showToast (Ljava/lang/String;Lcom/cnx/cnxgameengine/utils/CnxToast$ToastDuration;Lcom/cnx/cnxgameengine/utils/CoreEnums$MessageType;Landroid/content/Context;)V
+com/cnx/cnxgameengine/utils/LibUtils showToast (Ljava/lang/String;Ljava/lang/String;Lcom/cnx/cnxgameengine/utils/CnxToast$ToastDuration;Lcom/cnx/cnxgameengine/utils/CoreEnums$MessageType;Landroid/content/Context;)V
+com/cnx/cnxgameengine/utils/LibUtils showInfo (Ljava/lang/String;Landroid/content/Context;)V
+com/cnx/cnxgameengine/utils/LibUtils showInfo (Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)V
+com/cnx/cnxgameengine/utils/LibUtils showError (Ljava/lang/String;)V
+com/cnx/cnxgameengine/utils/LibUtils showError (Ljava/lang/String;Landroid/content/Context;)V
+com/cnx/cnxgameengine/utils/LibUtils showAlertMessage (Landroid/content/Context;Ljava/lang/String;Landroid/util/ArrayMap;)V
+com/cnx/cnxgameengine/utils/LibUtils showAlertMessage (Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+com/cnx/cnxgameengine/utils/LibUtils showAlertMessage (Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)V
+com/cnx/cnxgameengine/utils/LibUtils showAlertMessage (Landroid/content/Context;Ljava/lang/String;Z)V
+
+# --- the only content scripts that build Android dialogs themselves (arena victories, hostage event)
+com/cnx/endlesstalestwo/data/npcs/esperand/barbarianSettlement/Cradul lambda$npc$15 (Landroid/content/Context;Lcom/cnx/endlesstalestwo/views/CnxFragmentImplementation;)V
+com/cnx/endlesstalestwo/data/npcs/havarusNorth/swampIsland/fortress/Fargus lambda$npc$9 (Landroid/content/Context;Lcom/cnx/endlesstalestwo/views/CnxFragmentImplementation;)V
+com/cnx/endlesstalestwo/data/npcs/wazel/towerWarriors/Danjor lambda$npc$17 (Landroid/content/Context;Lcom/cnx/endlesstalestwo/views/CnxFragmentImplementation;)V
+com/cnx/endlesstalestwo/data/events/RandomEvents lambda$aHostage$12 (Landroid/content/Context;)V

@@ -1,0 +1,14 @@
+* text=auto
+*.java text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.iss text eol=crlf
+*.jar binary
+*.dll binary
+*.png binary
+*.webp binary
+*.jpg binary
+*.mp3 binary
+*.ogg binary
+*.ttf binary
