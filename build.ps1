@@ -10,7 +10,7 @@
     dist\EndlessTales2-<ver>-portable.zip              portable: unzip and run, saves stay in the folder
     dist\EndlessTales2-Setup-<ver>.exe                 installer (Start menu, desktop shortcut, uninstaller)
 
-  Needs (see README.md): JDK 25 (javac, jar, jpackage), the JavaFX SDK 25.0.1 in tools\, android.jar
+  Needs (see BUILDING.md): JDK 25 (javac, jar, jpackage), the JavaFX SDK 25.0.1 in tools\, android.jar
   (Android SDK platform 35, used only as compile-time stubs) and Inno Setup 6 for the installer.
 #>
 param(
@@ -24,7 +24,7 @@ param(
 $ErrorActionPreference = 'Stop'
 Set-Location $PSScriptRoot
 
-function Need($path, $what) { if (-not $path -or -not (Test-Path -LiteralPath $path)) { throw "$what not found: $path  (see README.md, Building)" } }
+function Need($path, $what) { if (-not $path -or -not (Test-Path -LiteralPath $path)) { throw "$what not found: $path  (see BUILDING.md)" } }
 function First([string[]]$candidates) { foreach ($c in $candidates) { if ($c -and (Test-Path -LiteralPath $c)) { return $c } }; return $candidates[0] }
 function Exec($label, [scriptblock]$cmd) {
     Write-Host "== $label"
