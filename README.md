@@ -25,6 +25,8 @@ You need Windows 10 or 11 (64-bit) and about 750 MB of free space.
 **Windows warning the first time?** Windows may say it "protected your PC" because the game is new.
 Choose **More info**, then **Run anyway**.
 
+**What's new:** see the **[Changelog](CHANGELOG.md)**.
+
 ## Made for blind and visually impaired players
 
 - **Talks to you through NVDA**, and to your braille display too. No screen reader running? The
